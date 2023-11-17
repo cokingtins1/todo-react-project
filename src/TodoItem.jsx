@@ -1,38 +1,16 @@
-export function TodoItem({ list }) {
+export function TodoItem({ id, name, completed, toggleTodo, deleteTodo }) {
 	return (
-		<ul>
-			{list && list.length > 0
-				? list.map((item, index) => (
-						<li key={index}>
-							<input type="checkbox" />
-							{item}
-							<button>Delete</button>
-						</li>
-				  ))
-				: undefined}
-		</ul>
+		<li className="list-item">
+			<input
+				checked={completed}
+				type="checkbox"
+				data-list-item-checkbox
+				onChange={(e) => toggleTodo(id, e.target.checked)}
+			/>
+			<span data-list-item-text>{name}</span>
+			<button onClick={() => deleteTodo(id)} data-button-delete>
+				Delete
+			</button>
+		</li>
 	)
-
-	// return (
-	// 	<ul>
-	// 		{list.map((item, index) => (
-	// 			<li key={index}>
-	// 				<input type="checkbox" />
-	// 				{item}
-	// 				<button>Delete</button>
-	// 			</li>
-	// 		))}
-	// 	</ul>
-	// )
 }
-
-// {list && list.length > 0
-//     ? list.map((item, index) => (
-//             <li key={index}>
-//                 <input type="checkbox" />
-//                 {item}
-//                 <button>Delete</button>
-//             </li>
-//       ))
-//     : undefined}
-// </ul>

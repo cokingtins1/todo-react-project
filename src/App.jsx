@@ -1,10 +1,10 @@
 import { TodoForm } from "./TodoForm"
 import { TodoItem } from "./TodoItem"
+import "./styles.css"
 
 function App() {
 	return (
 		<>
-			<TodoItem />
 			<TodoForm />
 		</>
 	)
